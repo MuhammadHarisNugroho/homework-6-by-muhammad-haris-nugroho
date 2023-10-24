@@ -1,0 +1,201 @@
+/* 
+    Buatlah sebuah Card seperti contoh disamping
+    Petunjuk:
+    1. Lebar card 400px, radius lengkung 15px, warna #f5f5f5, diberi padding 25px
+    2. Ukuran gambar 400px x 250px
+    3. Lebar gambar mobil 300px
+    4. Jarak antara gambar mobil dan konten sejauh 40px
+    5. Ukuran huruf pada nama mobil 32px, tebal 700, warna #576cbc
+    6. Ukuran huruf pada tulisan 'Fitur' 24px, warna #19376D
+    7. Jarak antara list fitur dengan harga 32px
+    8. Jarak antar baris pada list fitur sebesar 1.5
+    9. Ukuran huruf pada harga 32px, tebal 700, warna #576CBC
+    10. Untuk tombol : 
+        - Jarak antara tombol dengan paragraf deskripsi sejauh 20px
+        - Ukuran font pada tombol 22px, tebal 700
+        - Lebar tombol 200px
+        - Beri padding 12px (atas-bawah) dan 24px (kiri-kanan);
+        - Warna tombol #576CBC, warna teks pada tombol #f5f5f5
+    11. Ketika mouse berada diatas card, warna card berubah menjadi #DFCCFB
+        dan tulisannya berwarna putih
+    12. Ketika mouse berada diatas tombol, warna tombol berubah menjadi #F6F6F6
+        dan tulisannya berwarna #19376D;
+    13. GUNAKAN PROPERTI POSITION dan Z-INDEX yang sudah dipelajari!
+    14. GUNAKAN PSEUDO-CLASS dan PSEUDO ELEMENT yang sudah dipelajari!
+    15. GUNAKAN GRADIENT, BOX-SHADOW, TRANSFORM, dan TRANSITION yang sudah dipelajari!
+    16. GUNAKAN FILTER dan ANIMATION yang sudah dipelajari!
+    17. Disarankan untuk tidak menggunakan CSS Framework terlebih dahulu
+        seperti Bootstrap CSS, TailwindCSS, dll.
+
+    Nilai untuk latihan ini = 700 poin
+    Selamat Mengerjakan, Semoga paham :)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(https://images.unsplash.com/photo-1695664223162-54018c4ba296?auto=format&fit=crop&q=80&w=2069&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center/cover no-repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container2 {
+  width: 200px;
+  height: 200px;
+  margin-left: 500px;
+  margin-top: -200px; 
+  background-color: #DFCCFB;
+  border-radius: 50%;
+  z-index: -1;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:hover .container2 {
+  transform: scale(9);
+}
+
+.card {
+  width: 400px;
+  height: 550px;
+  border-radius: 25px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: 20px;
+  transition: transform 0.4s ease-in-out, background 0.4s ease-in-out;
+  position: relative;
+  transform-origin: center;
+  z-index: 1;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  z-index: -1;
+}
+
+.card:hover {
+  background-color: #dfccfb;
+  cursor: pointer;
+}
+
+.card:hover li {
+  color: #19376d;
+}
+
+.image-container {
+  width: 400px;
+  height: 250px;
+  margin-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.image-container img {
+  width: 60%;
+  margin-left: 75px;
+  object-fit: cover;
+}
+
+.card:hover img {
+  animation: rotateAndScale 5s infinite linear alternate;
+}
+
+@keyframes rotateAndScale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(-180deg) scale(2);
+  }
+  100% {
+    transform: rotate(-360deg) scale(0.1);
+  }
+}
+
+
+.content h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #576cbc;
+  margin: 0;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+
+.content ul {
+  font-size: 24px;
+  color: #19376d;
+  list-style: none;
+  padding: 0;
+}
+
+.content .fitur {
+  font-size: 28px;
+  font-weight: 700;
+  color: #19376D;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.content ul li {
+  line-height: 1.5;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 32px;
+  font-weight: 700;
+  color: #576cbc;
+}
+
+.content button {
+  font-size: 22px;
+  font-weight: 700;
+  width: 200px;
+  padding: 12px 24px;
+  background-color: #576cbc;
+  color: #f5f5f5;
+  border-radius: 25px;
+  margin-left: 30px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.content button:focus {
+  background-color: #f6f6f6;
+  color: #19376d;
+}
