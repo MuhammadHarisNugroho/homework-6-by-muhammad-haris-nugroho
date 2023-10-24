@@ -104,6 +104,7 @@ body {
 .card:hover {
   background-color: #dfccfb;
   cursor: pointer;
+  box-shadow: 0 0 50px 0px rgba(255, 255, 255, 0.3);
 }
 
 .card:hover li {
