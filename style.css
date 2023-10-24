@@ -195,7 +195,8 @@ body {
   cursor: pointer;
 }
 
-.content button:focus {
+.content button:hover {
+  transition: 0.5s ease-out;
   background-color: #f6f6f6;
   color: #19376d;
 }
